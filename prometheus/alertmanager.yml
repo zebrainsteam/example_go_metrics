@@ -1,0 +1,26 @@
+global:
+  # The smarthost and SMTP sender used for mail notifications.
+  smtp_smarthost: 'localhost:25'
+  smtp_from: 'alertmanager@example.org'
+
+route:
+  - match:
+      severity: test-telegram
+    receiver: stardata-telegram
+
+receivers:
+  - name: 'stardata-telegram'
+    telegram_configs:
+      - bot_token: YOUR_BOT_TOKEN
+        api_url: https://api.telegram.org
+        chat_id: YOUR_CHAT_ID
+        parse_mode: ''
+        http_config:
+          proxy_url: 'http://your-proxy-server-if-required:3128'
+
+inhibit_rules:
+  - source_match:
+    severity: "page"
+    target_matchers:
+      - severity="warning"
+    equal: [ 'AllInstances' ]
