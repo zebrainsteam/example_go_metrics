@@ -55,6 +55,9 @@ func (s Server) CreateOrderV1(w http.ResponseWriter, r *http.Request) {
 		//### START Метрика продолжительности вызова создания заказа Histogram
 		s.metrics.Histogram["request_processing_time_histogram_ms"].With(prometheus.Labels{"method": "CreateOrderV1", "status": strconv.Itoa(http.StatusBadRequest)}).Observe(time.Since(now).Seconds())
 		//### END Метрика продолжительности вызова создания заказа Histogram
+		//### START Метрика продолжительности вызова создания заказа Summary
+		s.metrics.Summary["request_processing_time_summary_ms"].Observe(time.Since(now).Seconds())
+		//### END Метрика продолжительности вызова создания заказа Summary
 		//### START Метрика количества результатов создания заказа
 		s.metrics.Counter["request_send"].With(prometheus.Labels{"type": "request_order_failed_bad_request"}).Inc()
 		//### END Метрика количества результатов создания заказа
@@ -72,6 +75,9 @@ func (s Server) CreateOrderV1(w http.ResponseWriter, r *http.Request) {
 		//### START Метрика продолжительности вызова создания заказа Histogram
 		s.metrics.Histogram["request_processing_time_histogram_ms"].With(prometheus.Labels{"method": "CreateOrderV1", "status": strconv.Itoa(http.StatusBadRequest)}).Observe(time.Since(now).Seconds())
 		//### END Метрика продолжительности вызова создания заказа Histogram
+		//### START Метрика продолжительности вызова создания заказа Summary
+		s.metrics.Summary["request_processing_time_summary_ms"].Observe(time.Since(now).Seconds())
+		//### END Метрика продолжительности вызова создания заказа Summary
 		//### START Метрика количества результатов создания заказа
 		s.metrics.Counter["request_send"].With(prometheus.Labels{"type": "request_order_failed_bad_request"}).Inc()
 		//### END Метрика количества результатов создания заказа
@@ -89,6 +95,9 @@ func (s Server) CreateOrderV1(w http.ResponseWriter, r *http.Request) {
 		//### START Метрика продолжительности вызова создания заказа Histogram
 		s.metrics.Histogram["request_processing_time_histogram_ms"].With(prometheus.Labels{"method": "CreateOrderV1", "status": strconv.Itoa(http.StatusInternalServerError)}).Observe(time.Since(now).Seconds())
 		//### END Метрика продолжительности вызова создания заказа Histogram
+		//### START Метрика продолжительности вызова создания заказа Summary
+		s.metrics.Summary["request_processing_time_summary_ms"].Observe(time.Since(now).Seconds())
+		//### END Метрика продолжительности вызова создания заказа Summary
 		//### START Метрика количества результатов создания заказа
 		s.metrics.Counter["request_send"].With(prometheus.Labels{"type": "request_order_failed_server"}).Inc()
 		//### END Метрика количества результатов создания заказа
@@ -109,6 +118,9 @@ func (s Server) CreateOrderV1(w http.ResponseWriter, r *http.Request) {
 		//### START Метрика продолжительности вызова создания заказа Histogram
 		s.metrics.Histogram["request_processing_time_histogram_ms"].With(prometheus.Labels{"method": "CreateOrderV1", "status": strconv.Itoa(http.StatusInternalServerError)}).Observe(time.Since(now).Seconds())
 		//### END Метрика продолжительности вызова создания заказа Histogram
+		//### START Метрика продолжительности вызова создания заказа Summary
+		s.metrics.Summary["request_processing_time_summary_ms"].Observe(time.Since(now).Seconds())
+		//### END Метрика продолжительности вызова создания заказа Summary
 		//### START Метрика количества результатов создания заказа
 		s.metrics.Counter["request_send"].With(prometheus.Labels{"type": "request_order_failed_server"}).Inc()
 		//### END Метрика количества результатов создания заказа
@@ -126,6 +138,9 @@ func (s Server) CreateOrderV1(w http.ResponseWriter, r *http.Request) {
 		//### START Метрика продолжительности вызова создания заказа Histogram
 		s.metrics.Histogram["request_processing_time_histogram_ms"].With(prometheus.Labels{"method": "CreateOrderV1", "status": strconv.Itoa(http.StatusInternalServerError)}).Observe(time.Since(now).Seconds())
 		//### END Метрика продолжительности вызова создания заказа Histogram
+		//### START Метрика продолжительности вызова создания заказа Summary
+		s.metrics.Summary["request_processing_time_summary_ms"].Observe(time.Since(now).Seconds())
+		//### END Метрика продолжительности вызова создания заказа Summary
 		//### START Метрика количества результатов создания заказа
 		s.metrics.Counter["request_send"].With(prometheus.Labels{"type": "request_order_failed_server"}).Inc()
 		//### END Метрика количества результатов создания заказа
